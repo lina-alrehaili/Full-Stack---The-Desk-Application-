@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
+import java.util.Comparator;
 
 public class Main {
 
@@ -89,12 +91,28 @@ public class Main {
         System.out.println("Closing your application... \nThank you!");
             }
     private static void searchExpenses(ArrayList<Integer> arrayList) {
-        int leng = arrayList.size();
+
+    	int length = arrayList.size();
         System.out.println("Enter the expense you need to search:\t");
         //Complete the method
+        Scanner s = new Scanner(System.in);
+        int value = s.nextInt();
+
+        if (arrayList.contains(value)) {
+        	System.out.println(
+        			"The index of the expense value "+value+ " is "+ arrayList.indexOf(value));
+        }
+        else {
+        	System.out.println("The expense value you entered doesn't exist!");
+        }
     }
     private static void sortExpenses(ArrayList<Integer> arrayList) {
-        int arrlength =  arrayList.size();
+
+        int arrLength =  arrayList.size();
        //Complete the method. The expenses should be sorted in ascending order.
+        arrayList.sort(Comparator.naturalOrder());
+
+        System.out.println("Your expenses are sorted: \n");
+        System.out.println(arrayList+"\n");
     }
 }
